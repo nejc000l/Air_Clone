@@ -1,20 +1,22 @@
 import Head from 'next/head'
-import { Global } from '@emotion/react'
-import xw from 'xwind'
+import "tailwindcss/tailwind.css"
+import '../styles/globals.css'
+import ProgressBar from "@badrap/bar-of-progress";
+import Router from 'next/router'
+const progress = new ProgressBar({
+  size:8,
+  color:"#ED5433",
+  className:"z-60",
+  delay:100,
+});
+Router.events.on('routeChangeStart',progress.start);
+Router.events.on('routeChangeComplete',progress.finish);
+Router.events.on("routeChangeError", progress.finish);
 
 function App({ Component, pageProps }) {
   return (
-    <>
-      <Head>
-        <title>Tailwindcss Emotion Example</title>
-      </Head>
-      <Global
-        //tailwind base styles + keyframes + ring and shadow classes variables  ... to global styles
-        styles={xw`XWIND_BASE XWIND_GLOBAL`}
-      />
       <Component {...pageProps} />
-    </>
-  )
+    )
 }
 
 export default App
