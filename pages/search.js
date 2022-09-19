@@ -4,9 +4,44 @@ import Footer from "../components/Footer";
 import { useRouter } from "next/router";
 import moment from "moment";
 import InfoCard from "../components/InfoCard";
-function Search({ searchResaults }) {
-  console.log(searchResaults);
-
+function Search() {
+  const searchResaults = [
+    {
+      "id":1,
+      "img":"https://links.papareact.com/xqj",
+      "location":"Private Room in center of London",
+      "description":"1 guest 1 bedroom 1 bed",
+      "star":"4.73",
+      "price":"$40 a night",
+      "total":"$100 total",
+      "long":"-0.0022275",
+      "lat":"51.5421655",
+      "title":"Vici Mansion"
+   }, {
+      "id":2,
+      "img":"https://links.papareact.com/hz2",
+      "location":"Private Room in center of London",
+      "description":"1 guest 1 bedroom 1 bed",
+      "star":"5",
+      "price":"$30 a night",
+      "total":"$90 total",
+      "long":"-0.095091",
+      "lat":"51.48695",
+      "title":"Edwards Castel"
+   },
+   {
+      "id":3,
+      "img":"https://links.papareact.com/uz7",
+      "location":"Private Room in center of London",
+      "description":"1 guest 1 bedroom 1 bed",
+      "star":"3.9",
+      "price":"$30 a night",
+      "total":"$110 total",
+      "long":"-0.135638",
+      "lat":"51.521916",
+      "title":"London Eye"
+   }
+  ]
   const router = useRouter();
   const { location, startDate, endDate, noOfGuests } = router.query;
 
@@ -60,13 +95,13 @@ function Search({ searchResaults }) {
 
 export default Search;
 
-export async function getServerSideProps() {
-  const searchResaults = await fetch("http://localhost:8000/tshirt").then(
-    (res) => res.json()
-  );
-  return {
-    props: {
-      searchResaults,
-    },
-  };
-}
+//export async function getServerSideProps() {
+  //const searchResaults = await fetch("http://localhost:8000/tshirt").then(
+    //(res) => res.json()
+ // );
+  //return {
+   // props: {
+     // searchResaults,
+    //},
+  //};
+//}
