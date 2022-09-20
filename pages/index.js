@@ -7,6 +7,11 @@ import MediumCard from "../components/Medium";
 import SmallCard from "../components/SmallCard";
 import Datas from "../data.json";
 import Datas2 from "../data2.json";
+import chalk from 'chalk';
+const greet = chalk.green.inverse.bold('succses')
+console.log(greet)
+
+
 export default function Home() {
   
   return (

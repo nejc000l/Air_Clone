@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { useRouter } from "next/router";
 import moment from "moment";
 import InfoCard from "../components/InfoCard";
+import ReactMap from '../components/Map'
 function Search() {
   const searchResaults = [
     {
@@ -14,8 +15,8 @@ function Search() {
       "star":"4.73",
       "price":"$40 a night",
       "total":"$100 total",
-      "long":"-0.0022275",
-      "lat":"51.5421655",
+      "long":"-0.118092",
+      "lat":"51.509865",
       "title":"Vici Mansion"
    }, {
       "id":2,
@@ -54,7 +55,7 @@ function Search() {
   return (
     <div className="">
       <Header placeholder={`${location} | ${range} | ${noOfGuests}guests`} />
-      <main className="flex">
+      <main className=" flex sm:flex-col xl:flex-row">
         <section className="flex-grow pt-14 px-6">
           <p className="text-xs">
             300+ Stays {range} for {noOfGuests} guests.
@@ -87,6 +88,9 @@ function Search() {
             ))}
           </div>
         </section>
+        <section className=" hidden md:inline-flex xl:min-w-[600px]">
+          <ReactMap searchResaults={searchResaults}/>
+        </section>
       </main>
       <Footer />
     </div>
@@ -95,6 +99,8 @@ function Search() {
 
 export default Search;
 
+
+// FOR API SERVER 
 //export async function getServerSideProps() {
   //const searchResaults = await fetch("http://localhost:8000/tshirt").then(
     //(res) => res.json()
